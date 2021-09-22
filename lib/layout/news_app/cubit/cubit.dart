@@ -37,7 +37,28 @@ class NewsCubit extends Cubit<NewsStates> {
     ScienceScreen(),
   ];
 
+  int selectedIndex = 0;
+  bool isDesktop = false;
+
+  void setDesktop(bool value) {
+    isDesktop = value;
+    emit(NewsSetDesktopState());
+  }
+
+  void selectBusinessItem(index) {
+    // for (int i = 0; i < businessSelectedItem.length; i++) {
+    //   if (i == index) {
+    //     businessSelectedItem[i] = true;
+    //   } else {
+    //     businessSelectedItem[i] = false;
+    //   }
+    // }
+    selectedIndex = index;
+    emit(NewsSelectBusinessItemState());
+  }
+
   List<dynamic> business = [];
+  // List<bool> businessSelectedItem = [];
   List<dynamic> sports = [];
   List<dynamic> science = [];
   List<dynamic> search = [];
@@ -54,6 +75,9 @@ class NewsCubit extends Cubit<NewsStates> {
       },
     ).then((value) {
       business = value.data['articles'];
+      // business.forEach((element) {
+      //   businessSelectedItem.add(false);
+      // });
       print(business[0]['title']);
       //print(value.data['status']);
       emit(NewsGetBusinessSuccessState());

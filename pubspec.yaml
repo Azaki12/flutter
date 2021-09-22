@@ -49,6 +49,8 @@ dependencies:
   cloud_firestore: ^2.5.1
   firebase_storage: ^10.0.3
   firebase_messaging: ^10.0.6
+  desktop_window: ^0.4.0
+  responsive_builder: ^0.4.1
 
 
 
