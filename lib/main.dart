@@ -1,10 +1,13 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
+import 'package:desktop_window/desktop_window.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/layout/news_app/news_layout.dart';
 import 'package:login/layout/shop_app/cubit/cubit.dart';
 import 'package:login/layout/social_app/social_layout/cubit/cubit.dart';
-import 'package:login/module/shop_app/on_boarding_screen/onboarding_screen.dart';
 import 'package:login/module/social_app/social_login/login_screen.dart';
 import 'package:login/shared/component/components.dart';
 import 'package:login/shared/component/constants.dart';
@@ -27,6 +30,23 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   // ensures that all the items in the main method is finished then runs the app
   WidgetsFlutterBinding.ensureInitialized();
+
+  // setting the minimum width and height on app
+  if (Platform.isMacOS)
+    await DesktopWindow.setMinWindowSize(
+      Size(
+        650,
+        650,
+      ),
+    );
+
+  if (Platform.isWindows)
+    await DesktopWindow.setMinWindowSize(
+      Size(
+        1024,
+        800,
+      ),
+    );
 
   // await Firebase.initializeApp();
   // // to receive notification while app is running
@@ -127,7 +147,7 @@ class MyApp extends StatelessWidget {
             theme: lightTheme,
             themeMode: cubit.isDark ? ThemeMode.dark : ThemeMode.light,
             darkTheme: darkTheme,
-            home: OnBoardingScreen(),
+            home: NewsLayout(),
           );
         },
         listener: (context, state) {},

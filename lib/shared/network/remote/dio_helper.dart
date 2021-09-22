@@ -1,13 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
+// https://student.valuxapps.com/api/ > shop app
+// https://newsapi.org/ > news app
+
 class DioHelper {
   static Dio dio;
 
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://student.valuxapps.com/api/',
+        baseUrl: 'https://newsapi.org/',
         receiveDataWhenStatusError: true,
       ),
     );
