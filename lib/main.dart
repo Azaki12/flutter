@@ -5,9 +5,9 @@ import 'package:desktop_window/desktop_window.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/layout/news_app/news_layout.dart';
 import 'package:login/layout/shop_app/cubit/cubit.dart';
 import 'package:login/layout/social_app/social_layout/cubit/cubit.dart';
+import 'package:login/module/native_code.dart';
 import 'package:login/module/social_app/social_login/login_screen.dart';
 import 'package:login/shared/component/components.dart';
 import 'package:login/shared/component/constants.dart';
@@ -16,6 +16,7 @@ import 'package:login/shared/network/local/cashe_helper.dart';
 import 'package:login/shared/styles/themes.dart';
 
 import 'layout/news_app/cubit/cubit.dart';
+import 'layout/news_app/news_layout.dart';
 import 'layout/social_app/social_layout/social_layout.dart';
 import 'shared/bloc_observer.dart';
 import 'shared/cubit/states.dart';

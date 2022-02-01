@@ -43,7 +43,17 @@ class NewsLayout extends StatelessWidget {
             onTap: (index) {
               cubit.changeBottomNavBar(index);
             },
-            items: cubit.bottomItems,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.business),
+                label: ('Business'),
+              ),
+              BottomNavigationBarItem(
+                label: 'Sports',
+                icon: Icon(Icons.sports),
+              ),
+            ],
+            // items: cubit.bottomItems,
           ),
           // floatingActionButton: FloatingActionButton(
           //   onPressed: () {
